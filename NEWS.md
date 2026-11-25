@@ -51,6 +51,16 @@ via public web search; no paywalled or private source was used.
   assembly headlines, 25 Nov 2026:
   https://www.jagranjosh.com/articles/school-assembly-news-headlines-november-25-2026-jake-fraser-punjab-elections-nepal-pm-gta-6-and-other-news-1800019653-1
 
+## Map pins (v2)
+
+The v2 image pins each story at the real location of the event it
+reports: 1 Gulf of Finland (60°N, 26°E) — where the ships were hit;
+2 Antalya (36.9°N, 30.7°E) — COP31 venue; 3 Washington DC (38.9°N,
+77°W) — CIA/ODNI; 4 New York (40.7°N, 74°W) — Huawei trial; 5 Ituri,
+Congo (1.5°N, 30°E) — Ebola evacuation; 6 Riyadh (24.6°N, 46.7°E) —
+tower strike. Pins 3 and 4 sit close together on a world map, so their
+number badges are offset with leader lines.
+
 ## Notes
 
 - The Huawei verdict itself is dated 24 Nov (jury decision); it is the

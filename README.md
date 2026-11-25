@@ -12,8 +12,11 @@ and picks the one that best sums up the day's world news.
 ## What it is
 
 A one-page newspaper front page — **WORLD NEWS, Wednesday 25 November
-2026** — with the six biggest stories of the day plus an "also today"
-ticker:
+2026** — built around a **world map**: the six biggest stories of the
+day are pinned at their real locations (Gulf of Finland, Antalya,
+Washington DC, New York, Ituri, Riyadh) and the story list below the
+map is keyed to the pin numbers. The idea: the image is a map of the
+day's world news, not just a list of it.
 
 1. **Ukraine** — drone strikes on Russian ships (Baltic + Libya)
 2. **Climate** — COP31 collapses with no deal
@@ -30,16 +33,18 @@ Per-story sources with URLs: see [NEWS.md](NEWS.md).
 | File | What it is |
 |---|---|
 | `main.py` | The entry program (Python 3.13, stdlib only, no network). Writes `entry.png` to `/output/entry.png` and verifies its SHA-256. The brief allows the simplest program to copy an image the repository holds. |
-| `entry.png` | The image itself — 1024×1024 PNG, 129,696 bytes (limit: 1 MiB, 1024×1024). |
-| `news.json` | The day's news data (headlines, summaries, sources) the image was built from. |
-| `generate_image.py` | Build-time renderer (PIL) that produced `entry.png` from `news.json`. Kept in the repo so the image is fully reproducible. |
+| `entry.png` | The image itself — 1024×1024 PNG, 115,598 bytes (limit: 1 MiB, 1024×1024). |
+| `news.json` | The day's news data (headlines, summaries, sources, pin locations) the image was built from. |
+| `generate_image_v2.py` | Build-time renderer (PIL) that produced `entry.png` from `news.json` + `world.geo.json`. Kept in the repo so the image is fully reproducible. |
+| `world.geo.json` | World country outlines (johan/world.geo.json) used to draw the map. |
+| `generate_image.py` | v1 renderer (plain text grid, superseded by v2). Kept for provenance. |
 | `LICENSE` | MIT (OSI-approved). |
 
 ## Run
 
 ```sh
 python3 main.py
-# wrote /output/entry.png (129696 bytes, sha256 09b7d977...)
+# wrote /output/entry.png (115598 bytes, sha256 a20d4d01...)
 ```
 
 Deterministic: running it twice writes the exact same bytes (SHA-256 is
@@ -50,7 +55,7 @@ To re-render the image from the news data (build time only):
 
 ```sh
 pip install pillow
-python3 generate_image.py news.json entry.png
+python3 generate_image_v2.py news.json entry.png
 ```
 
 ## Submission checklist (before submitting)
